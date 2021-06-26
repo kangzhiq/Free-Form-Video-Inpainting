@@ -16,10 +16,12 @@ class RootInputDirectories:
         self,
         root_videos_dir,
         root_masks_dir,
+        root_frontal_dir = None,
         video_names_filename=None
     ):
         self.root_videos_dir = root_videos_dir
         self.root_masks_dir = root_masks_dir
+        self.root_frontal_dir = root_frontal_dir
         if video_names_filename is not None:
             with open(video_names_filename, 'r') as fin:
                 self.video_dirnames = [
@@ -64,6 +66,7 @@ class VideoDirectories:
 
         self.frames_dir = os.path.join(rid.root_videos_dir, video_name)
         self.mask_dir = os.path.join(rid.root_masks_dir, mask_name)
+        self.frontal_dir = os.path.join(rid.root_frontal_dir, video_name)
         self.masked_frames_dir = os.path.join(rod.masked_frames, self.name)
         self.results_dir = os.path.join(rod.result_frames, self.name)
         self.flows_dir = os.path.join(rod.optical_flows, video_name)

@@ -104,6 +104,7 @@ class VideoFrameAndMaskDataset(Dataset):
         return masks
 
     def _process_vds(self, vds):
+        # Load Ground Truth
         sample_period = random.randint(1, self.random_sample_period_max)
         gt_reader = FrameReader(vds.frames_dir, sample_period=sample_period)
         # print(f"s{sample_period}, len{len(gt_reader)}")
@@ -114,6 +115,10 @@ class VideoFrameAndMaskDataset(Dataset):
             logger.warning(
                 f"len frames {len(gt_frames)} reader {len(gt_reader)} < sample_length {self.sample_length}"
                 f" dir {vds.frames_dir}")
+
+        # Load frontalized frames
+        frontal_reader = FrameReader(vds.frontal_dir, sample_period=sample_period)
+        fr_frames = frontal_reader[start:end]
         masks = self._get_masks(self.size, start, end, vds.mask_dir)
 
         if self.do_augment:
@@ -138,14 +143,14 @@ class VideoFrameAndMaskDataset(Dataset):
         # To tensors
         gt_tensors = self._to_tensors(gt_frames)
         mask_tensors = self._to_tensors(masks)[:video_length]
-
+        fr_tensors = self._to_tensors(fr_frames)
         # Deal with VOR test set problem: some ground truth videos are longer than masks
         if gt_tensors.shape[0] != mask_tensors.shape[0]:
             assert gt_tensors.shape[0] > mask_tensors.shape[0]
             gt_tensors = gt_tensors.narrow(0, 0, mask_tensors.shape[0])
 
         # Mask input
-        input_tensors = gt_tensors * mask_tensors
+        input_tensors = fr_tensors * mask_tensors
 
         return {
             "input_tensors": input_tensors,
