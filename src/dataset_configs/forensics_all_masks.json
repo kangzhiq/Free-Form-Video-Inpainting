@@ -5,6 +5,7 @@
         "args":{
             "root_videos_dir": "/mnt2/FaceForensics/Train/videos/",
             "root_masks_dir": "/mnt2/FaceForensics/Train/masks/",
+            "root_frontal_dir": "/mnt2/FaceForensics/Train/videos/",
             "root_outputs_dir": "",
             "dataset_args": {
                 "type": "video",
