@@ -122,3 +122,4 @@ src/saved/
 
 # pretrained model weights
 libs/model_weights/
+src/pretrained_model

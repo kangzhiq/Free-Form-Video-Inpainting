@@ -39,7 +39,7 @@ class VideoInpaintingModel(BaseModel):
         self.conv_type = opts['conv_type'] if 'conv_type' in opts else 'gated'
 
         self.use_refine = opts['use_refine'] if 'use_refine' in opts else False
-        use_skip_connection = opts.get('use_skip_connection', False)
+        use_skip_connection = opts.get('use_skip_connection', True)
 
         self.opts = opts
 

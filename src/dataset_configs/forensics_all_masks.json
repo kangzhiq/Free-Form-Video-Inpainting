@@ -3,8 +3,8 @@
     "data_loader": {
         "type": "MaskedFrameDataLoader",
         "args":{
-            "root_videos_dir": "../dataset/FaceForensics/Train/videos/",
-            "root_masks_dir": "../dataset/FaceForensics/Train/masks/",
+            "root_videos_dir": "/mnt2/FaceForensics/Train/videos/",
+            "root_masks_dir": "/mnt2/FaceForensics/Train/masks/",
             "root_outputs_dir": "",
             "dataset_args": {
                 "type": "video",
@@ -27,8 +27,8 @@
             "type": "MaskedFrameDataLoader",
             "args":{
                 "name": "test_rand_curve",
-                "root_videos_dir": "../dataset/FaceForensics/Test/videos/",
-                "root_masks_dir": "../dataset/FaceForensics/Test/masks/test_rand_curve/",
+                "root_videos_dir": "/mnt2/FaceForensics/Test/videos/",
+                "root_masks_dir": "/mnt2/FaceForensics/Test/masks/test_rand_curve/",
                 "root_outputs_dir": "",
                 "dataset_args": {
                     "type": "video",
@@ -49,8 +49,8 @@
             "type": "MaskedFrameDataLoader",
             "args":{
                 "name": "test_object_like",
-                "root_videos_dir": "../dataset/FaceForensics/Test/videos/",
-                "root_masks_dir": "../dataset/FaceForensics/Test/masks/test_object_like/",
+                "root_videos_dir": "/mnt2/FaceForensics/Test/videos/",
+                "root_masks_dir": "/mnt2/FaceForensics/Test/masks/test_object_like/",
                 "root_outputs_dir": "",
                 "dataset_args": {
                     "type": "video",
