@@ -11,11 +11,11 @@ class MaskedFrameDataLoader(BaseDataLoader):
         self, root_videos_dir, root_masks_dir, root_outputs_dir,
         dataset_args,
         batch_size, shuffle, validation_split,
-        num_workers, video_names_filename=None, training=True, name=None
+        num_workers, video_names_filename=None, training=True, name=None, root_frontal_dir=None
     ):
         # Input directories
         self.rids = RootInputDirectories(
-            root_videos_dir, root_masks_dir, root_frontal_dir =root_videos_dir, video_names_filename=video_names_filename)
+            root_videos_dir, root_masks_dir, root_frontal_dir =root_frontal_dir, video_names_filename=video_names_filename)
 
         # Output directories
         self.rods = RootOutputDirectories(root_outputs_dir)
