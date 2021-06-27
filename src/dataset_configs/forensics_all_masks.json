@@ -30,6 +30,7 @@
                 "name": "test_rand_curve",
                 "root_videos_dir": "/mnt2/FaceForensics/Test/videos/",
                 "root_masks_dir": "/mnt2/FaceForensics/Test/masks/test_rand_curve/",
+                "root_frontal_dir": "/mnt2/FaceForensics/Test/videos/",
                 "root_outputs_dir": "",
                 "dataset_args": {
                     "type": "video",
@@ -52,6 +53,7 @@
                 "name": "test_object_like",
                 "root_videos_dir": "/mnt2/FaceForensics/Test/videos/",
                 "root_masks_dir": "/mnt2/FaceForensics/Test/masks/test_object_like/",
+                "root_frontal_dir": "/mnt2/FaceForensics/Test/videos/",
                 "root_outputs_dir": "",
                 "dataset_args": {
                     "type": "video",
