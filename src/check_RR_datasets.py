@@ -7,6 +7,7 @@ root_videos_dir =  "/mnt2/FaceForensics/Test/videos/"
 root_masks_dir = "/mnt2/FaceForensics/Test/masks_RR/"
 root_frontal_dir = "/mnt2/FaceForensics/Test/frontal/"
 
+count = 0
 for id in os.listdir(root_frontal_dir):
     id_frontal_dir = os.path.join(root_frontal_dir, id)
     id_masks_dir = os.path.join(root_masks_dir, id)
@@ -32,4 +33,6 @@ for id in os.listdir(root_frontal_dir):
         os.rmdir(id_frontal_dir)
         os.rmdir(id_masks_dir)
         print("Empty folder after check")
+    count += 1
 
+print('check folders:', count)
