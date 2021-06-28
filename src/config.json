@@ -90,7 +90,7 @@
     "trainer": {
         "epochs": 1000,
         "save_dir": "ckpt/",
-        "save_freq": 5,
+        "save_freq": 15,
         "verbosity": 2,
         "monitor": "test0_p_dist",
         "monitor_mode": "min",

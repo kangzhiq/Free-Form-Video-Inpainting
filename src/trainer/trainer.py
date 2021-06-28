@@ -119,7 +119,7 @@ class Trainer(BaseTrainer):
                     self.logger.debug(f"Saving batch {batch_idx} input to {output_dir}")
                     save_frames_to_dir([self.toPILImage(t) for t in inputs.cpu()], output_dir)
 
-                if epoch is not None and epoch % 5 == 0:
+                if epoch is not None and epoch % 15 == 0:
                     # Save test results to output_dir
                     output_dir = os.path.join(output_root_dir, f"result_{batch_idx:04}")
                     self.logger.debug(f"Saving batch {batch_idx} to {output_dir}")
