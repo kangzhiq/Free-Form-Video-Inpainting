@@ -3,9 +3,9 @@ import sys
 
 import numpy as np
 
-root_videos_dir =  "/mnt2/FaceForensics/Test/videos/"
-root_masks_dir = "/mnt2/FaceForensics/Test/masks_RR/"
-root_frontal_dir = "/mnt2/FaceForensics/Test/frontal/"
+root_videos_dir =  "/mnt2/FaceForensics/Train/videos/"
+root_masks_dir = "/mnt2/FaceForensics/Train/masks_RR/"
+root_frontal_dir = "/mnt2/FaceForensics/Train/frontal/"
 
 count = 0
 for id in os.listdir(root_frontal_dir):
