@@ -8,7 +8,7 @@ from skimage.feature import canny
 from skimage.color import rgb2gray
 
 from utils.readers import (
-    FrameReader, SegmentationReader
+    FrameReader, FrameReaderGray, SegmentationReader
 )
 from utils.directory_IO import (
     RootOutputDirectories, RootInputDirectories, VideoDirectories
@@ -84,7 +84,7 @@ class VideoFrameAndMaskDataset(Dataset):
             if self.mask_dilation > 0:
                 masks = [m.filter(ImageFilter.MinFilter(self.mask_dilation)) for m in masks]
         elif self.mask_type == 'as_video':
-            masks = FrameReader(fg_dir)[start_idx: end_idx]
+            masks = FrameReaderGray(fg_dir)[start_idx: end_idx]
         elif self.mask_type == 'random':
             masks = FrameReader(fg_dir)
             # This is to sample a random clip of the mask video.

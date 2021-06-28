@@ -206,6 +206,53 @@ class FrameReader(Reader):
         video_writer.release()
 
 
+class FrameReaderGray(Reader):
+    def __init__(
+        self, dir_name, resize=None, read=True, max_length=MAX_LENGTH,
+        scale=1, sample_period=1
+    ):
+        self.resize = resize
+        self.scale = scale
+        self.sample_period = sample_period
+        super().__init__(dir_name, read, max_length, sample_period)
+
+    def read_file(self, filename):
+        origin_frame = Image.open(filename)
+        origin_frame = origin_frame.convert('1')
+        size = self.resize if self.resize is not None else origin_frame.size
+        origin_frame_resized = origin_frame.resize(
+            (int(size[0] * self.scale), int(size[1] * self.scale))
+        )
+        return origin_frame_resized
+
+    def _save_file(self, output_dir, i, file_):
+        if len(self.filenames) == len(self.files):
+            name = sorted(self.filenames)[i].split('/')[-1]
+        else:
+            name = f"frame_{i:04}.png"
+        filename = os.path.join(
+            output_dir, name
+        )
+        file_.save(filename, "PNG")
+
+    def write_files_to_video(self, output_filename, fps=DEFAULT_FPS, frame_num_when_repeat_list=[1]):
+        logger.info(
+            f"Writeing frames to video {output_filename} with FPS={fps}")
+        video_writer = cv2.VideoWriter(
+            output_filename,
+            cv2.VideoWriter_fourcc(*"MJPG"),
+            fps,
+            self.files[0].size
+        )
+        for frame_num_when_repeat in frame_num_when_repeat_list:
+            for frame in self.files:
+                frame = frame.convert("RGB")
+                frame_cv = np.array(frame)
+                frame_cv = cv2.cvtColor(frame_cv, cv2.COLOR_RGB2BGR)
+                for i in range(frame_num_when_repeat):
+                    video_writer.write(frame_cv)
+        video_writer.release()
+
 class SynthesizedFrameReader(FrameReader):
     def __init__(
         self, bg_frames_dir, fg_frames_dir,
