@@ -30,7 +30,7 @@ class RootInputDirectories:
                 ]
 
         else:
-            self.video_dirnames = read_dirnames_under_root(root_videos_dir)
+            self.video_dirnames = read_dirnames_under_root(root_masks_dir)
         self.mask_dirnames = read_dirnames_under_root(root_masks_dir)
 
     def __len__(self):

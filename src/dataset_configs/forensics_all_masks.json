@@ -4,8 +4,8 @@
         "type": "MaskedFrameDataLoader",
         "args":{
             "root_videos_dir": "/mnt2/FaceForensics/Train/videos/",
-            "root_masks_dir": "/mnt2/FaceForensics/Train/masks/",
-            "root_frontal_dir": "/mnt2/FaceForensics/Train/videos/",
+            "root_masks_dir": "/mnt2/FaceForensics/Train/masks_RR/",
+            "root_frontal_dir": "/mnt2/FaceForensics/Train/frontal/",
             "root_outputs_dir": "",
             "dataset_args": {
                 "type": "video",
@@ -14,7 +14,7 @@
                 "sample_length": 32,
                 "random_sample": true,
                 "random_sample_mask": true,
-                "mask_type": "from_start",
+                "mask_type": "as_video",
                 "do_augment": true
             },
             "batch_size": 2,
@@ -29,8 +29,8 @@
             "args":{
                 "name": "test_rand_curve",
                 "root_videos_dir": "/mnt2/FaceForensics/Test/videos/",
-                "root_masks_dir": "/mnt2/FaceForensics/Test/masks/test_rand_curve/",
-                "root_frontal_dir": "/mnt2/FaceForensics/Test/videos/",
+                "root_masks_dir": "/mnt2/FaceForensics/Test/masks_RR/",
+                "root_frontal_dir": "/mnt2/FaceForensics/Test/frontal/",
                 "root_outputs_dir": "",
                 "dataset_args": {
                     "type": "video",
@@ -39,7 +39,7 @@
                     "sample_length": 32,
                     "random_sample": false,
                     "random_sample_mask": false,
-                    "mask_type": "from_start"
+                    "mask_type": "as_video"
                 },
                 "batch_size": 1,
                 "shuffle": false,
@@ -52,8 +52,8 @@
             "args":{
                 "name": "test_object_like",
                 "root_videos_dir": "/mnt2/FaceForensics/Test/videos/",
-                "root_masks_dir": "/mnt2/FaceForensics/Test/masks/test_object_like/",
-                "root_frontal_dir": "/mnt2/FaceForensics/Test/videos/",
+                "root_masks_dir": "/mnt2/FaceForensics/Test/masks_RR/",
+                "root_frontal_dir": "/mnt2/FaceForensics/Test/frontal/",
                 "root_outputs_dir": "",
                 "dataset_args": {
                     "type": "video",
@@ -62,7 +62,7 @@
                     "sample_length": 32,
                     "random_sample": false,
                     "random_sample_mask": false,
-                    "mask_type": "from_start"
+                    "mask_type": "as_video"
                 },
                 "batch_size": 1,
                 "shuffle": false,
