@@ -11,9 +11,9 @@
                 "type": "video",
                 "w": 128,
                 "h": 128,
-                "sample_length": 32,
+                "sample_length": 29,
                 "random_sample": true,
-                "random_sample_mask": true,
+                "random_sample_mask": false,
                 "mask_type": "as_video",
                 "do_augment": true
             },
@@ -36,7 +36,7 @@
                     "type": "video",
                     "w": 128,
                     "h": 128,
-                    "sample_length": 32,
+                    "sample_length": 29,
                     "random_sample": false,
                     "random_sample_mask": false,
                     "mask_type": "as_video"
@@ -59,7 +59,7 @@
                     "type": "video",
                     "w": 128,
                     "h": 128,
-                    "sample_length": 32,
+                    "sample_length": 29,
                     "random_sample": false,
                     "random_sample_mask": false,
                     "mask_type": "as_video"
